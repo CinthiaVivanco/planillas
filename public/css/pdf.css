@@ -1,0 +1,64 @@
+.center{
+    text-align: center;
+}
+.fila{
+    font-size: 1.2em;
+}
+
+.fila p{
+    text-align: left;
+    color:#999999;
+    margin: 1px;
+    font-size: 0.85em;
+    font-weight: bold;
+    font-style: italic;    
+}
+.fila .punto{
+    border-radius: 2px;
+    width: 4px;
+    height: 4px;
+    text-align: center;
+    margin: 7px auto;
+}
+.fila .noasistio{
+    background: #ea4335;
+}
+.fila .asistio{
+    background: #28a745;
+}
+
+.fila .fecha{
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.fila .hora{
+    font-size: 0.85em;
+    font-weight: bold;        
+}
+
+.fila .subtitulo{
+    text-align: center;
+    color: black;
+    font-size: 0.7em;
+    font-weight: bold;
+    font-style: inherit;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.fila .asistencia{
+    color: #2d9147; 
+    font-weight: bold; 
+}
+
+table {
+    border-collapse: collapse;
+    width   : 730px;
+    margin-top: 15px;
+    font-size: 0.7em;    
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
