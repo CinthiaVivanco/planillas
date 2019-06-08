@@ -12,6 +12,13 @@
     display: none;
 }
 
+.chico{
+    width: 117px !important;
+    height: 35px;
+    margin-top: -44px;
+    margin-left: 37px;
+}
+
 /******* select list *******/
 .telefonocorto{
   width: auto;
@@ -29,6 +36,7 @@
 .selectlist{
     margin-bottom: 30px;
 }
+
 /**************************/
 
 .controlleft{

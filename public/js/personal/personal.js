@@ -176,8 +176,31 @@ $(document).ready(function(){
                 console.log('Error:', data);
             }
         });
-
     }); 
+
+    $(".eps").on('click','.radio', function() {
+
+        $valor =$("input[name='afiliadoeps']:checked").val(); 
+        $('#epscodigo').val("");
+
+        if($valor == '1'){
+
+           $('#epscodigo').removeClass( "hide" );
+           $('#epscodigo').attr("required", true);
+
+           $('#tipoeps').removeClass( "hide" );
+           $('#tipoeps').attr("required", true);
+
+        }else{
+
+           $('#epscodigo').addClass( "hide" );
+           $('#epscodigo').attr("required", false);
+
+           $('#tipoeps').addClass( "hide" );
+           $('#tipoeps').attr("required", false);
+
+        }
+    });
 
 
     $(".otrarenta").on('click','.radio', function() {
@@ -213,7 +236,6 @@ $(document).ready(function(){
            $('#nrohijos').addClass( "hide" );
            $('#nrohijos').attr("required", false);
         }
-
     });
 
 
@@ -659,8 +681,6 @@ $(document).ready(function(){
 function gradoacademico(valor){
 
         $variable = $("#situacioneducativa_id option:selected").text(); 
-
-
 
         $('#swga').val('1');
 

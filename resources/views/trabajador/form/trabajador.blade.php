@@ -889,11 +889,23 @@
 
                           <div class="form-group">
                                 <label class="col-sm-12 control-label labelleft">¿Afiliado a EPS? <span class="required">*</span></label>
-                                <div class="col-sm-7 abajocaja">
+                                <div class="col-sm-7 abajocaja eps">
                                   <div class="be-radio has-success inline">
-                                    <input type="radio" value='1' class="radio" @if(isset($trabajador)) @if($trabajador->afiliadoeps == 1) checked  @endif @else  @endif name="afiliadoeps" id="rad7">
+                                    <input 
+                                    type="radio" 
+                                    value='1' 
+                                    class="radio" 
+                                    @if(isset($trabajador)) 
+                                        @if($trabajador->afiliadoeps == 1) 
+                                          checked  
+                                        @endif 
+                                    @else  
+                                    @endif 
+                                    name="afiliadoeps" 
+                                    id="rad7">
                                     <label for="rad7">Sí</label>
                                   </div>
+
                                   <div class="be-radio has-danger inline radio2">
                                     <input type="radio" value='0' class="radio" required = ""  @if(isset($trabajador)) @if($trabajador->afiliadoeps == 0) checked  @endif @endif name="afiliadoeps" id="rad8">
                                     <label for="rad8">No</label>
@@ -901,9 +913,34 @@
                                 </div>
                           </div>
 
-                          <div class="form-group">
+                          <div class="col-sm-7 epscodigo">
+                            <input  type="text" 
+                                    id="epscodigo" 
+                                    name="epscodigo"    
+                                    placeholder="Código EPS"
+                                    class="form-control chico input-sm
+                                        @if(isset($trabajador))
+                                          @if(count($trabajador)>0)
+                                            @if($trabajador->epscodigo == '')
+                                              hide  
+                                            @endif
+                                          @else 
+                                            hide  
+                                          @endif
+                                        @else 
+                                            hide 
+                                        @endif""
+                                        data-aw='1'
+                                        @if(isset($trabajador)) 
+                                          @if($trabajador->epscodigo <> '')     
+                                            value='{{$trabajador->epscodigo}}'  required   
+                                          @endif 
+                                        @endif"
+                            />
+                          </div> 
 
-                                <label class="col-sm-12 control-label labelleft">EPS</label>
+                          <div class="form-group tipo eps" id='tipoeps'>
+                                <label class="col-sm-12 control-label labelleft">TIPO EPS</label>
                                 <div class="col-sm-7 abajocaja">
                                   {!! Form::select( 'codigoeps_id', $combocodigoeps, array(),
                                                     [
@@ -946,7 +983,7 @@
                                     id="otrarentaquinta" 
                                     name="otrarentaquinta"    
                                     placeholder="Ingrese importe"
-                                    class="form-control input-sm
+                                    class="form-control chico input-sm
                                         @if(isset($trabajador))
                                           @if(count($trabajador)>0)
                                             @if($trabajador->otrarentaquinta == '')
@@ -964,9 +1001,7 @@
                                             value='{{$trabajador->otrarentaquinta}}'  required   
                                           @endif 
                                         @endif"
-
                             />
-
                           </div> 
                     
                           <div class="form-group">
@@ -1013,11 +1048,11 @@
                             <input  type="text" 
                                     id="nrohijos" 
                                     name="nrohijos"    
-                                    placeholder="Ingrese Nro Hijos"
-                                    class="form-control input-sm
+                                    placeholder="Nro Hijos"
+                                    class="form-control chico input-sm
                                         @if(isset($trabajador))
                                           @if(count($trabajador)>0)
-                                            @if($trabajador->nrohijos == '')
+                                            @if($trabajador->nrohijos == '' or $trabajador->nrohijos == '0')
                                               hide  
                                             @endif
                                           @else 

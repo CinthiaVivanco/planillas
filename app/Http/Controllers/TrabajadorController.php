@@ -332,8 +332,6 @@ class TrabajadorController extends Controller
 
 			$ffin 						 = $this->fin;
 
-
-
 			return View::make('trabajador/agregartrabajador',
 						[
 							'combotipodocumento' 			=> $combotipodocumento,
@@ -369,7 +367,6 @@ class TrabajadorController extends Controller
 						  	'combohorario'	    			=> $combohorario,
 						  	'ffin'	  					    => $ffin,						
 						]);
-
 		}
 	}
 
@@ -413,11 +410,9 @@ class TrabajadorController extends Controller
 
 			}
 
-
 			/****************************** MODIFICAR TRABAJADOR ******************************/
 
-
-			$cargo 								= 		Cargo::where('id','=',$request['cargo_id'])->first();
+			$cargo 								  = 		Cargo::where('id','=',$request['cargo_id'])->first();
 			$cabecera            	 	 		  =		Trabajador::find($idtrabajador);
 			//$empresa            	 	 		  =		Empresa::find($empresa->id);
 
@@ -546,7 +541,6 @@ class TrabajadorController extends Controller
 				// $codigotelefono					= DB::table('codigotelefonos')->pluck('descripcionabreviada','id')->toArray();
 				// $combocodigotelefono			= array($trabajador->codigotelefono_id => $trabajador->codigotelefono ->descripcionabreviada) + $codigotelefono ;
 
-
 				if(isset($trabajador->codigotelefono)) {
 
 					$codigotelefono					= DB::table('codigotelefonos')->pluck('descripcionabreviada','id')->toArray();
@@ -562,7 +556,6 @@ class TrabajadorController extends Controller
 				// $paisemisordocumento			= DB::table('paisemisordocumentos')->pluck('descripcion','id')->toArray();
 				// $combopaisemisordocumento		= array($trabajador->paisemisordocumento_id => $trabajador->paisemisordocumento ->descripcion) + $paisemisordocumento ;
 
-
 				if(isset($trabajador->paisemisordocumento)) {
 
 					$paisemisordocumento			= DB::table('paisemisordocumentos')->pluck('descripcion','id')->toArray();
@@ -575,18 +568,14 @@ class TrabajadorController extends Controller
 
 				}
 
-
-
 				if(isset($trabajador->convenio)) {
 
 					$convenio			= DB::table('convenios')->pluck('descripcion','id')->toArray();
 					$comboconvenio		= array($trabajador->convenio_id => $trabajador->convenio ->descripcion,'' => "Seleccione Convenio") + $convenio ;
-
 				}else{
 
 					$convenio		 = DB::table('convenios')->pluck('descripcion','id')->toArray();
 					$comboconvenio	 = array('' => "Seleccione Convenio") + $convenio;
-
 				}
 
 
@@ -594,17 +583,9 @@ class TrabajadorController extends Controller
 				$comboentidadfinanciera 		= array($trabajador->entidadfinanciera_id => $trabajador->entidadfinanciera ->entidad,'' => "Seleccione Entidad Financiera") + $entidadfinanciera ;
 
 
-				if(isset($trabajador->codigoeps)){
+				$codigoeps		 	= DB::table('codigoeps')->pluck('descripcion','id')->toArray();
+				$combocodigoeps	 	= array('' => "Seleccione Código EPS") + $codigoeps;
 
-					$codigoeps			= DB::table('codigoeps')->pluck('descripcion','id')->toArray();
-					$combocodigoeps		= array($trabajador->codigoeps_id => $trabajador->codigoeps ->descripcion,'' => "Seleccione Código EPS") + $codigoeps ;
-
-				}else{
-
-					$codigoeps		 = DB::table('codigoeps')->pluck('descripcion','id')->toArray();
-					$combocodigoeps	 = array('' => "Seleccione Código EPS") + $codigoeps;
-
-				}
 
 				$regimensalud 					= DB::table('regimensaluds')->pluck('descripcionabreviada','id')->toArray();
 				$comboregimensalud				= array($trabajador->regimensalud_id => $trabajador->regimensalud ->descripcionabreviada,'' => "Seleccione Regimen Salud") + $regimensalud ;
